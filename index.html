@@ -6,12 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Weather App</title>
+<title>Weather App | Rishabh Porwal</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,19 +29,29 @@
 Real-Time Weather Forecast
 </p>
 
+<p id="dateTime" class="date-time">
+Loading...
+</p>
+
 <div class="search-box">
 
 <input
 type="text"
 id="city"
-placeholder="Search City...">
+placeholder="Search any city...">
+
 <button id="searchBtn">
 Search
 </button>
+
+</div>
+
 <button id="locationBtn" class="location-btn">
 📍 Use Current Location
 </button>
 
+<div id="loading" class="loading">
+Loading Weather...
 </div>
 
 <div class="weather">
@@ -64,49 +73,90 @@ City Name
 <p id="description">
 Weather Description
 </p>
+
 <div class="info">
 
-<div class="box">
+  <div class="box">
+
 <span>💧</span>
+
 <h3 id="humidity">--</h3>
+
 <p>Humidity</p>
+
 </div>
 
 <div class="box">
+
 <span>💨</span>
+
 <h3 id="wind">--</h3>
-<p>Wind</p>
+
+<p>Wind Speed</p>
+
 </div>
 
 <div class="box">
+
 <span>🌡️</span>
+
 <h3 id="feelsLike">--</h3>
+
 <p>Feels Like</p>
+
 </div>
 
 <div class="box">
+
 <span>👁️</span>
+
 <h3 id="visibility">--</h3>
+
 <p>Visibility</p>
-</div>
-
-</div>
-
-<div class="box">
-
-<span>🌬️</span>
-
-<h3 id="wind">
---
-</h3>
-
-<p>Wind</p>
 
 </div>
 
 </div>
 
+<div class="extra-info">
+
+<div class="extra-card">
+
+<h4>🌅 Sunrise</h4>
+
+<p id="sunrise">--:--</p>
+
 </div>
+
+<div class="extra-card">
+
+<h4>🌇 Sunset</h4>
+
+<p id="sunset">--:--</p>
+
+</div>
+
+<div class="extra-card">
+
+<h4>🌡️ Pressure</h4>
+
+<p id="pressure">--</p>
+
+</div>
+
+<div class="extra-card">
+
+<h4>☁️ Cloud</h4>
+
+<p id="cloud">--%</p>
+
+</div>
+
+</div>
+
+<p class="footer">
+Made with ❤️ by Rishabh Porwal
+</p>
 
 </div>
 
