@@ -1,4 +1,4 @@
-function updateDateTime(){
+ function updateDateTime(){
 
 const now = new Date();
 
@@ -56,3 +56,10 @@ icon.style.display = "block";
     }
 
 }
+document.getElementById("city").addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+searchWeather();
+}
+
+});
