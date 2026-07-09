@@ -19,7 +19,10 @@ async function getWeather() {
 
         const data = await response.json();
         const current = data.current_condition[0];
+const icon = document.getElementById("weatherIcon");
 
+icon.src = current.weatherIconUrl[0].value;
+icon.style.display = "block";
         document.getElementById("cityName").innerText = city;
 
         document.getElementById("temp").innerText =
