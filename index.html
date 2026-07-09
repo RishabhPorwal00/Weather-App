@@ -2,83 +2,98 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
 
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Weather App</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="weather-card">
+<div class="card">
 
-      <h1>🌤 Weather App</h1>
+<h1>🌤 Weather App</h1>
 
 <p class="subtitle">
-Live Weather Forecast
+Real-Time Weather Forecast
 </p>
 
-<p id="dateTime" class="date-time">
-Loading...
-</p>  
+<div class="search-box">
 
-        <div class="search-box">
+<input
+type="text"
+id="city"
+placeholder="Search City...">
 
-            <input
-                type="text"
-                id="city"
-                placeholder="Enter city name">
+<button id="searchBtn">
+🔍
+</button>
 
-            <button id="searchBtn">
-                Search
-            </button>
+</div>
 
-        </div>
+<div class="weather">
 
-        <div class="weather-info">
+<img
+id="weatherIcon"
+class="weather-icon"
+src=""
+alt="Weather Icon">
 
-            <h2 id="cityName">
-                City Name
-            </h2>
-<img id="weatherIcon" src="" alt="Weather Icon" class="weather-icon">
-            <h1 id="temp">
-                --°C
-            </h1>
+<h2 id="cityName">
+City Name
+</h2>
 
-            <p id="description">
-                Weather
-            </p>
+<h1 id="temp">
+--°C
+</h1>
 
-            <div class="details">
+<p id="description">
+Weather Description
+</p>
 
-                <div>
-                    💧
-                    <span id="humidity">
-                        --
-                    </span>%
-                </div>
+<div class="info">
 
-                <div>
-                    🌬
-                    <span id="wind">
-                        --
-                    </span>
-                    km/h
-                </div>
+<div class="box">
 
-            </div>
+<span>💧</span>
 
-        </div>
+<h3 id="humidity">
+--
+</h3>
 
-    </div>
+<p>Humidity</p>
+
+</div>
+
+<div class="box">
+
+<span>🌬️</span>
+
+<h3 id="wind">
+--
+</h3>
+
+<p>Wind</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
