@@ -135,5 +135,20 @@ transform:translateY(-8px);
 100%{
 transform:translateY(0);
 }
+    
+}
 
+.subtitle{
+    color:#dbeafe;
+    margin-top:-10px;
+    margin-bottom:15px;
+    font-size:16px;
+    letter-spacing:1px;
+}
+
+.date-time{
+    margin-bottom:25px;
+    color:#ffffff;
+    opacity:.8;
+    font-size:14px;
 }
