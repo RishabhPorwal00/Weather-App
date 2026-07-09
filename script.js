@@ -18,3 +18,18 @@ async function getWeather() {
         );
 
         const data = await response.json();
+        const current = data.current_condition[0];
+
+        document.getElementById("cityName").innerText = city;
+
+        document.getElementById("temp").innerText =
+            current.temp_C + "°C";
+
+        document.getElementById("description").innerText =
+            current.weatherDesc[0].value;
+
+        document.getElementById("humidity").innerText =
+            current.humidity;
+
+        document.getElementById("wind").innerText =
+            current.windspeedKmph;
