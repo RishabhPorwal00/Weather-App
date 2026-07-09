@@ -33,3 +33,11 @@ async function getWeather() {
 
         document.getElementById("wind").innerText =
             current.windspeedKmph;
+    } catch (error) {
+
+        alert("Unable to fetch weather data.");
+        console.log(error);
+
+    }
+
+}
