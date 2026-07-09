@@ -1,65 +1,201 @@
- function updateDateTime(){
+// ===============================
+// Weather App v3.0 - Part 1
+// ===============================
 
-const now = new Date();
+const cityInput = document.getElementById("city");
+const searchBtn = document.getElementById("searchBtn");
+const locationBtn = document.getElementById("locationBtn");
 
-document.getElementById("dateTime").innerText =
-now.toLocaleString();
+const cityName = document.getElementById("cityName");
+const temp = document.getElementById("temp");
+const description = document.getElementById("description");
+const humidity = document.getElementById("humidity");
+const wind = document.getElementById("wind");
+const feelsLike = document.getElementById("feelsLike");
+const visibility = document.getElementById("visibility");
+const weatherIcon = document.getElementById("weatherIcon");
+
+function updateDateTime(){
+
+    const now = new Date();
+
+    document.getElementById("dateTime").innerText =
+    now.toLocaleString();
 
 }
 
 updateDateTime();
 
 setInterval(updateDateTime,1000);
-const searchBtn = document.getElementById("searchBtn");
 
-searchBtn.addEventListener("click", getWeather);
+searchBtn.addEventListener("click",()=>{
 
-async function getWeather() {
+    getWeather(cityInput.value);
 
-    const city = document.getElementById("city").value.trim();
+});
 
-    if (city === "") {
-        alert("Please enter a city name");
-        return;
+cityInput.addEventListener("keypress",(e)=>{
+
+    if(e.key==="Enter"){
+
+        getWeather(cityInput.value);
+
     }
 
-    try {
+});
 
-        const response = await fetch(
+async function getWeather(city){
+
+    city=city.trim();
+
+    if(city===""){
+
+        alert("Please enter a city name");
+
+        return;
+
+    }
+
+    try{
+
+        searchBtn.disabled=true;
+
+        searchBtn.innerText="Loading...";
+
+        const response=await fetch(
             `https://wttr.in/${city}?format=j1`
         );
 
-        const data = await response.json();
-        const current = data.current_condition[0];
-const icon = document.getElementById("weatherIcon");
+        const data=await response.json();
 
-icon.src = current.weatherIconUrl[0].value;
-icon.style.display = "block";
-        document.getElementById("cityName").innerText = city;
+        const current=data.current_condition[0];
+             weatherIcon.style.display = "block";
+        weatherIcon.src = current.weatherIconUrl[0].value;
 
-        document.getElementById("temp").innerText =
-            current.temp_C + "°C";
+        cityName.innerText = city;
 
-        document.getElementById("description").innerText =
-            current.weatherDesc[0].value;
+        temp.innerText =
+        current.temp_C + "°C";
 
-        document.getElementById("humidity").innerText =
-            current.humidity;
+        description.innerText =
+        current.weatherDesc[0].value;
 
-        document.getElementById("wind").innerText =
-            current.windspeedKmph;
-    } catch (error) {
+        humidity.innerText =
+        current.humidity + "%";
 
-        alert("Unable to fetch weather data.");
+        wind.innerText =
+        current.windspeedKmph + " km/h";
+
+        feelsLike.innerText =
+        current.FeelsLikeC + "°C";
+
+        visibility.innerText =
+        current.visibility + " km";
+
+        updateBackground(
+            current.weatherDesc[0].value
+        );
+
+        searchBtn.disabled = false;
+
+        searchBtn.innerText = "Search";
+
+    }catch(error){
+
+        searchBtn.disabled = false;
+
+        searchBtn.innerText = "Search";
+
+        weatherIcon.style.display = "none";
+
+        alert("Unable to fetch weather.");
+
         console.log(error);
 
     }
 
 }
-document.getElementById("city").addEventListener("keypress",function(e){
+// ===============================
+// Weather App v3.0 - Part 3
+// ===============================
 
-if(e.key==="Enter"){
-searchWeather();
+function updateBackground(weather){
+
+    weather = weather.toLowerCase();
+
+    if(weather.includes("sun") || weather.includes("clear")){
+
+        document.body.style.background =
+        "linear-gradient(135deg,#f59e0b,#f97316,#fb7185)";
+
+    }
+
+    else if(weather.includes("rain")){
+
+        document.body.style.background =
+        "linear-gradient(135deg,#0f172a,#1e40af,#38bdf8)";
+
+    }
+
+    else if(weather.includes("cloud")){
+
+        document.body.style.background =
+        "linear-gradient(135deg,#475569,#64748b,#94a3b8)";
+
+    }
+
+    else{
+
+        document.body.style.background =
+        "linear-gradient(135deg,#0f172a,#1e3a8a,#38bdf8)";
+
+    }
+
+}
+
+if(locationBtn){
+
+locationBtn.addEventListener("click",()=>{
+
+if(!navigator.geolocation){
+
+alert("Geolocation is not supported.");
+
+return;
+
+}
+
+navigator.geolocation.getCurrentPosition(async(position)=>{
+
+const lat=position.coords.latitude;
+const lon=position.coords.longitude;
+
+try{
+
+const response=await fetch(
+`https://wttr.in/${lat},${lon}?format=j1`
+);
+
+const data=await response.json();
+
+const city =
+data.nearest_area[0].areaName[0].value;
+
+cityInput.value = city;
+
+getWeather(city);
+
+}catch(error){
+
+alert("Unable to get your location.");
+
 }
 
 });
+
+});
+
+}
+
+// Default Weather
+getWeather("Mandsaur");
