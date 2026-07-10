@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,9 +22,11 @@
 
 <div class="container">
 
-<div class="card">
+<div class="weather-card">
 
-<h1>🌤 Weather App</h1>
+<h1 class="title">
+🌤 Weather App
+</h1>
 
 <p class="subtitle">
 Real-Time Weather Forecast
@@ -32,7 +35,7 @@ Real-Time Weather Forecast
 <p id="dateTime" class="date-time">
 Loading...
 </p>
-</div>
+
 <div class="search-box">
 
 <input
@@ -41,23 +44,24 @@ id="city"
 placeholder="Search any city...">
 
 <button id="searchBtn">
-Search
+🔍 Search
 </button>
+
+</div>
 
 <button id="locationBtn" class="location-btn">
 📍 Use Current Location
 </button>
 
 <div id="loading" class="loading">
-Loading Weather...
+Fetching Weather...
 </div>
-
-<div class="weather">
+<div class="weather-content">
 
 <img
 id="weatherIcon"
 class="weather-icon"
-src="https://i.pinimg.com/originals/06/c4/f7/06c4f70ec5931e2342e703e8a3f0a253.png?nii=t"
+src=""
 alt="Weather Icon">
 
 <h2 id="cityName">
@@ -72,43 +76,51 @@ City Name
 Weather Description
 </p>
 
-<div class="info">
+<div class="info-grid">
 
-  <div class="box">
+<div class="info-card">
 
 <span>💧</span>
 
-<h3 id="humidity">--</h3>
+<h3 id="humidity">
+--
+</h3>
 
 <p>Humidity</p>
 
 </div>
 
-<div class="box">
+<div class="info-card">
 
 <span>💨</span>
 
-<h3 id="wind">--</h3>
+<h3 id="wind">
+--
+</h3>
 
 <p>Wind Speed</p>
 
 </div>
 
-<div class="box">
+<div class="info-card">
 
 <span>🌡️</span>
 
-<h3 id="feelsLike">--</h3>
+<h3 id="feelsLike">
+--
+</h3>
 
 <p>Feels Like</p>
 
 </div>
 
-<div class="box">
+<div class="info-card">
 
 <span>👁️</span>
 
-<h3 id="visibility">--</h3>
+<h3 id="visibility">
+--
+</h3>
 
 <p>Visibility</p>
 
@@ -116,13 +128,15 @@ Weather Description
 
 </div>
 
-<div class="extra-info">
+<div class="extra-grid">
 
 <div class="extra-card">
 
 <h4>🌅 Sunrise</h4>
 
-<p id="sunrise">--:--</p>
+<p id="sunrise">
+--:--
+</p>
 
 </div>
 
@@ -130,7 +144,9 @@ Weather Description
 
 <h4>🌇 Sunset</h4>
 
-<p id="sunset">--:--</p>
+<p id="sunset">
+--:--
+</p>
 
 </div>
 
@@ -138,7 +154,9 @@ Weather Description
 
 <h4>🌡️ Pressure</h4>
 
-<p id="pressure">--</p>
+<p id="pressure">
+--
+</p>
 
 </div>
 
@@ -146,11 +164,13 @@ Weather Description
 
 <h4>☁️ Cloud</h4>
 
-<p id="cloud">--%</p>
+<p id="cloud">
+--%
+</p>
 
 </div>
-</div>
 
+</div>
 <p class="footer">
 Made with ❤️ by Rishabh Porwal
 </p>
